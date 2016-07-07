@@ -72,7 +72,7 @@ function Deck () {
     var tempArr = self.cardSet;
     var finalArr = [];
     for (var i = 1; i <= 52; i++) {
-      var rando =  Math.ceil(Math.random()*tempArr.length);
+      var rando =  Math.floor(Math.random()*tempArr.length);
       finalArr[i] = tempArr[rando];
       tempArr = tempArr.filter(function(card){
         if (card !== tempArr[rando]) {
@@ -80,12 +80,16 @@ function Deck () {
         } else { return false;}
       });
     }
-  return finalArr;
+    self.cardSet = finalArr;
+    return self.cardSet;
   };
-  // this.draw =
+  this.draw = function () {
+    return this.cardSet[1];
+  };
 }
 
-var ugh = new Deck();
-ugh.build();
-console.log(ugh.cardSet);
-console.log(ugh.shuffle());
+var hoyle = new Deck();
+hoyle.build();
+console.log(hoyle.cardSet);
+console.log(hoyle.shuffle());
+console.log(hoyle.draw());
