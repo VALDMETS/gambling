@@ -90,6 +90,6 @@ function Deck () {
 
 var hoyle = new Deck();
 hoyle.build();
-console.log(hoyle.cardSet);
+// console.log(hoyle.cardSet);
 console.log(hoyle.shuffle());
 console.log(hoyle.draw());
